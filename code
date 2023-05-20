@@ -1,0 +1,67 @@
+import java.io.BufferedReader;    // buffered class for reading string and calculation
+import java.io.InputStreamReader; // to decode byte 
+import java.io.IOException;       // handles error
+
+public class Serrano_Jovena {            //class declaration
+
+	public static void main(String []args) { // the main method where the program starts
+
+		BufferedReader dataIn = new BufferedReader (new InputStreamReader(System.in)); // to read input file
+		try{ // handles error
+		
+		String stName = ""; 	// variable that holds the string value of a students name
+		String course = "";	// variable that holds the string value of the students course 
+		String input = ""; 	// variable that holds input of user to be use later on for string convert into int 
+		Double gQuiz, gSwork, glabEx, gAss, gPreEx; // variables that contains the values for each base grade categories
+		Double Q, S, L, A, P;	// variables that holds  the result from the executed equation 
+		Double preGrade;	        // variable that holds the value / result for the Prelim Grade 
+		
+		System.out.println("\n");
+		System.out.print("Student Name : ");  // print out
+		stName = dataIn.readLine(); 	      // reads the input string and store it to the variable
+		System.out.print("Course\t: ");	      // print out
+		course = dataIn.readLine();	      // reads the input string and store it to the varaible
+
+		System.out.println("Grades");	      // print out
+
+		System.out.print("\tQuiz\t\t:\t");    // print out
+		input = dataIn.readLine();	      // read the input and store it to the variable input
+		gQuiz = Double.parseDouble(input);    // this will convert the value/string stored in input to an integer
+		Q = gQuiz * 0.25;		      // value stored in gQuiz will be multiplied to a given constant and result will be use later on 
+		
+		System.out.print("\tSeatwork\t:\t");  // print out
+		input = dataIn.readLine();            // read the input and store it to the variable input
+		gSwork = Double.parseDouble(input);   // this will convert the value/string stored in input to an integer
+		S = gSwork * 0.1;		      // value stored in gSwork will be multiplied to a given constant and result will be use later on  
+
+		System.out.print("\tLab.Exercises\t:\t");// print out
+		input = dataIn.readLine();	        // read the input and store it to the variable input
+		glabEx = Double.parseDouble(input);     // this will convert the value/string stored in input to an integer
+		L = glabEx * 0.2;		        // value stored in glabEx will be multiplied to a given constant and result will be use later on  
+
+		System.out.print("\tAssignment\t:\t");  // print out
+		input = dataIn.readLine();	        // read the input and store it to the variable input
+		gAss = Double.parseDouble(input);       // this will convert the value/string stored in input to an integer
+		A = gAss * 0.05;		        // value stored in gAss will be multiplied to a given constant and result will be use later on  
+
+
+		System.out.print("\tPrelim Exam\t:\t"); // print out
+		input = dataIn.readLine();	        // read the input and store it to the variable input
+		gPreEx = Double.parseDouble(input);     // this will convert the value/string stored in input to an integer/ float
+		P = gPreEx * 0.4;		        // value stored in gPreEx will be multiplied to a given constant and result will be use later on  
+    
+		System.out.print("\n");		        // for next line/space
+  
+                preGrade = Q + S + L + A + P;	        // compute the over all prelim grade
+
+		System.out.print("\tPrelim Grade\t:\t");// print out
+		System.out.printf("%.2f", preGrade);    // print out the result by two decimal points 
+		System.out.println("\n");
+
+		} catch (IOException e){	        // if error catch within the execution this will be execute
+			System.out.println("ERROR!");   // print out
+		}
+			
+
+	}
+}
